@@ -262,23 +262,26 @@
             }
         }
         .portfolio-section .relative {
+            position: relative;
             width: 100%;
             overflow: hidden;
+            padding: 0 2rem;
         }
         
         #portfolioSlider {
             display: flex;
-            transition: transform 0.5s ease;
+            gap: 2rem;
+            transition: transform 0.5s ease-in-out;
         }
         
         .portfolio-item {
-            flex: 0 0 33.333%; /* Show exactly 3 items */
-            padding: 0 0.75rem;
+            flex: 0 0 calc(33.333% - 1.33rem);
+            min-width: 0;
         }
         
         @media (max-width: 768px) {
             .portfolio-item {
-                flex: 0 0 100%; /* Full width on mobile */
+                flex: 0 0 100%;
             }
         }
 
@@ -414,3 +417,29 @@
             border-color: #8B8455;
             color: #8B8455;
         }
+
+        #prevBtn, #nextBtn {
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Hide scrollbar */
+        .overflow-hidden::-webkit-scrollbar {
+            display: none;
+        }
+
+/* Add these new styles for dots */
+.dot-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+}
+
+.dot-indicator.active {
+    background-color: #8B8455;
+}
+
+.dot-indicator.inactive {
+    background-color: #D1D5DB;
+}

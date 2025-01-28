@@ -161,65 +161,58 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
         document.getElementById('enquiryPopup').classList.add('hidden');
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const slider = document.getElementById('portfolioSlider');
-        const items = slider.children;
-        const totalItems = items.length;
-        const itemsPerView = window.innerWidth > 768 ? 3 : 1;
-        const totalSlides = Math.ceil(totalItems / itemsPerView);
-        
-        // Generate dots
-        const dotsContainer = document.getElementById('portfolioDots');
-        dotsContainer.innerHTML = ''; // Clear existing dots
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = `w-2 h-2 rounded-full ${i === 0 ? 'bg-[#8B8455]' : 'bg-gray-300'}`;
-            dot.setAttribute('data-index', i);
-            dotsContainer.appendChild(dot);
+    const slider = document.getElementById('portfolioSlider');
+    const items = slider.getElementsByClassName('portfolio-item');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentPosition = 0;
+    const itemWidth = 33.333; // Width of each item in percentage
+    const maxPosition = (items.length - 3) * itemWidth; // Maximum slide position
+
+    function updateSliderPosition() {
+        slider.style.transform = `translateX(-${currentPosition}%)`;
+    }
+
+    function nextSlide() {
+        if (currentPosition < maxPosition) {
+            currentPosition += itemWidth;
+            updateSliderPosition();
         }
-    
-        let currentIndex = 0;
-    
-        function updateSlider(index) {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
-            
-            currentIndex = index;
-            const offset = -(currentIndex * (100 / itemsPerView));
-            slider.style.transform = `translateX(${offset}%)`;
-    
-            // Update dots
-            document.querySelectorAll('#portfolioDots button').forEach((dot, i) => {
-                dot.className = `w-2 h-2 rounded-full ${i === currentIndex ? 'bg-[#8B8455]' : 'bg-gray-300'}`;
+    }
+
+    function prevSlide() {
+        if (currentPosition > 0) {
+            currentPosition -= itemWidth;
+            updateSliderPosition();
+        }
+    }
+
+    // Event listeners for buttons
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Handle responsive behavior
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            // Mobile view adjustments
+            Array.from(items).forEach(item => {
+                item.style.flex = '0 0 100%';
+            });
+            currentPosition = 0;
+            updateSliderPosition();
+        } else {
+            // Desktop view adjustments
+            Array.from(items).forEach(item => {
+                item.style.flex = '0 0 33.333%';
             });
         }
-    
-        // Add click events to dots
-        document.querySelectorAll('#portfolioDots button').forEach((dot, index) => {
-            dot.addEventListener('click', () => updateSlider(index));
-        });
-    
-        // Add click events to navigation buttons
-        document.getElementById('prevBtn')?.addEventListener('click', () => updateSlider(currentIndex - 1));
-        document.getElementById('nextBtn')?.addEventListener('click', () => updateSlider(currentIndex + 1));
-    
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            updateSlider(currentIndex + 1);
-        }, 5000);
-    
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const newItemsPerView = window.innerWidth > 768 ? 3 : 1;
-            if (newItemsPerView !== itemsPerView) {
-                location.reload(); // Refresh page on breakpoint change
-            }
-        });
-    
-        // Initial setup
-        updateSlider(0);
-    });
-    
+    }
+
+    // Initial setup
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
 // document.querySelector('#app').innerHTML = `
 //   <div>
 //     <a href="https://vitejs.dev" target="_blank">
@@ -239,3 +232,4 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
 // `
 
 // setupCounter(document.querySelector('#counter'))
+
