@@ -1361,23 +1361,18 @@
         event.preventDefault();
         let name = document.getElementById('name').value 
         let mobile = document.getElementById('mobile').value
-        let config = document.getElementById('config').value
         let domain = window.location.origin;
-        console.log(name, mobile, config, domain);
+        console.log(name, mobile, domain);
 
         let html = `<h3>New Inquiry</h3>
         <p>You have a new contact inquiry:</p>
         <ul>
             <li><strong>Name:</strong> <span>${name}</span></li>
             <li><strong>Mobile:</strong> <span>${mobile}</span></li>
-            <li><strong>Requirement:</strong> <span>${config}</span></li>
             <li><strong>Source:</strong> <span>${domain}</span></li>
         </ul>
         <p>Thank you.</p>
         `
-
-        // let html = "<h1>New Contact</h1>"
-
 
         let encodedHtml = encodeURIComponent(html);
         let url = `https://gt.thelearningsetu.com/api/extra_api/contact?domain=${domain}&name=${name}&html_content=${encodedHtml}`;
@@ -1389,7 +1384,6 @@
 
         document.getElementById('name').value = ""
         document.getElementById('mobile').value = ""
-        document.getElementById('config').value = ""
         // console.log(data);
         // Add your form submission logic here
     }
