@@ -76,6 +76,29 @@ window.addEventListener('scroll', reveal);
 reveal(); // Initial check
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => {
+                c.classList.remove('active');
+                c.style.opacity = '0';
+            });
+
+            tab.classList.add('active');
+            const content = document.getElementById(tab.dataset.tab);
+            content.classList.add('active');
+            
+            requestAnimationFrame(() => {
+                content.style.opacity = '1';
+            });
+        });
+    });
+});
+
 const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -213,6 +236,30 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
     handleResize();
     window.addEventListener('resize', handleResize);
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => {
+                    c.classList.remove('active');
+                    c.style.opacity = '0';
+                });
+
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const content = document.getElementById(tab.dataset.tab);
+                content.classList.add('active');
+                
+                // Trigger reflow for animation
+                void content.offsetWidth;
+                content.style.opacity = '1';
+            });
+        });
+    });
 // document.querySelector('#app').innerHTML = `
 //   <div>
 //     <a href="https://vitejs.dev" target="_blank">
