@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             buttonText.includes('enquire') || 
             buttonText.includes('download brochure') ||
             buttonText.includes('schedule a visit') ||
+            buttonText.includes('view project') ||
             buttonText.includes('contact')) {
             
             // Randomly assign different animation classes
@@ -152,6 +153,7 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
                 buttonText.includes('enquire') || 
                 buttonText.includes('download brochure') ||
                 buttonText.includes('schedule a visit') ||
+                buttonText.includes('view project') ||
                 buttonText.includes('contact')) {
                 button.addEventListener('click', openEnquiryPopup);
             }
@@ -258,6 +260,62 @@ const mobileMenuButton = document.getElementById('mobile-menu-button');
                 void content.offsetWidth;
                 content.style.opacity = '1';
             });
+        });
+    });
+
+    // Add this to handle image loading
+    const projectImages = document.querySelectorAll('.project-card img');
+    projectImages.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+    });
+
+    // Smooth scroll for mobile tab navigation
+    const tabNav = document.querySelector('.tab-navigation');
+    if (tabNav) {
+        let isScrolling = false;
+        let startX;
+        let scrollLeft;
+
+        tabNav.addEventListener('touchstart', (e) => {
+            isScrolling = true;
+            startX = e.touches[0].pageX - tabNav.offsetLeft;
+            scrollLeft = tabNav.scrollLeft;
+        });
+
+        tabNav.addEventListener('touchmove', (e) => {
+            if (!isScrolling) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - tabNav.offsetLeft;
+            const walk = (x - startX) * 2;
+            tabNav.scrollLeft = scrollLeft - walk;
+        });
+
+        tabNav.addEventListener('touchend', () => {
+            isScrolling = false;
+        });
+    }
+
+    // Active tab indicator position update
+    function updateActiveTabIndicator() {
+        const activeTab = document.querySelector('.tab-btn.active');
+        if (activeTab) {
+            const tabNav = document.querySelector('.tab-navigation');
+            const activeTabRect = activeTab.getBoundingClientRect();
+            const navRect = tabNav.getBoundingClientRect();
+            const scrollLeft = activeTabRect.left - navRect.left + tabNav.scrollLeft;
+            tabNav.scrollTo({
+                left: scrollLeft - (navRect.width - activeTabRect.width) / 2,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // Call on tab click
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setTimeout(updateActiveTabIndicator, 100);
         });
     });
 // document.querySelector('#app').innerHTML = `

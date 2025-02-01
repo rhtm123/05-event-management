@@ -616,3 +616,223 @@
 .dot-indicator.inactive {
     background-color: #D1D5DB;
 }
+
+/* Tab Navigation Base Styles */
+.tab-navigation {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #E5E7EB;
+    margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.tab-btn {
+    padding: 1rem 1.5rem;
+    color: #6B7280;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.tab-btn.active {
+    color: #8B8455;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #8B8455;
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+    .tab-navigation {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        padding: 0;
+        margin: 0 -1rem; /* Negative margin to align with container */
+        padding: 0 1rem; /* Add padding back */
+        gap: 0; /* Remove gap for mobile */
+    }
+
+    .tab-navigation::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .tab-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        flex: 0 0 auto;
+        position: relative;
+    }
+
+    /* Add fade effect on edges */
+    .tab-navigation::before,
+    .tab-navigation::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .tab-navigation::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+    }
+
+    .tab-navigation::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .tab-btn {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Container for tabs */
+.tab-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Enhanced Animations */
+.view-project-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.view-project-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.5s ease;
+}
+
+.view-project-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 132, 85, 0.3);
+}
+
+.view-project-btn:hover::before {
+    left: 100%;
+}
+
+/* Card Hover Effects */
+.project-card {
+    transform: translateY(0);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-overlay {
+    transform: translateY(10px);
+    opacity: 0.9;
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Tab Button Animation */
+.tab-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #8B8455;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.tab-btn:hover::before {
+    width: 100%;
+}
+
+.tab-btn.active::before {
+    width: 100%;
+}
+
+
+/* Fade In Animation for Cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Smooth Tab Transition */
+.tab-content {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-content.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.tab-content:not(.active) {
+    transform: translateX(20px);
+    opacity: 0;
+}
