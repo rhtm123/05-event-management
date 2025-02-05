@@ -5,8 +5,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: './index.html',
-        main: "./main.js",
-        // Add more HTML files as needed
+                // Add more HTML files as needed
       }
     }
   }
