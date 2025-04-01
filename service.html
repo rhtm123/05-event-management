@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mandakini Social & Corporate Events - Making Moments that Matter</title>
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- AOS Animation -->
+        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <!-- Swiper Slider -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            maroon: {
+                                50: '#fdf2f8',
+                                100: '#fce7f3',
+                                200: '#fbcfe8',
+                                300: '#f9a8d4',
+                                400: '#f472b6',
+                                500: '#a4006e',
+                                600: '#8a005d',
+                                700: '#70004b',
+                                800: '#570039',
+                                900: '#3d0027',
+                            },
+                        },
+                        fontFamily: {
+                            'poppins': ['Poppins', 'sans-serif'],
+                        },
+                    }
+                }
+            }
+        </script>
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                overflow-x: hidden;
+            }
+            
+            /* Hero Slider */
+            .hero-slider {
+                position: relative;
+                height: 100vh;
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .hero-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 1.5s ease-in-out;
+                display: flex;
+                align-items: center;
+            }
+            
+            .hero-slide.active {
+                opacity: 1;
+                z-index: 1;
+            }
+            
+            .hero-slide::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
+            
+            /* Card Animations */
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            
+            .card-hover:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            
+            /* Button Animations */
+            .btn-pulse {
+                animation: pulse 2s infinite;
+            }
+            
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(164, 0, 110, 0.7);
+                }
+                70% {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 0 10px rgba(164, 0, 110, 0);
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(164, 0, 110, 0);
+                }
+            }
+            
+            /* Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                overflow: auto;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            
+            .modal.show {
+                display: block;
+                opacity: 1;
+            }
+            
+            .modal-content {
+                background-color: #fff;
+                margin: 5% auto;
+                max-width: 900px;
+                position: relative;
+                display: flex;
+                border-radius: 0;
+                overflow: hidden;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                transform: translateY(-50px);
+                transition: transform 0.3s ease;
+            }
+            
+            .modal.show .modal-content {
+                transform: translateY(0);
+            }
+            
+            .modal-left {
+                width: 50%;
+                position: relative;
+                background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .modal-left::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
+            
+            .modal-right {
+                width: 50%;
+                padding: 40px;
+                background-color: white;
+            }
+            
+            .close-modal {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #888;
+                transition: color 0.3s ease;
+                z-index: 10;
+            }
+            
+            .close-modal:hover {
+                color: #000;
+            }
+            
+            /* Rotating Sphere */
+            .sphere-container {
+                position: relative;
+                z-index: 5;
+                width: 150px;
+                height: 150px;
+            }
+            
+            .sphere {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                border-radius: 50%;
+                border: 2px solid white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: rotate 10s linear infinite;
+                background: rgba(138, 0, 93, 0.2);
+            }
+            
+            .sphere::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                animation: pulse-ring 2s linear infinite;
+            }
+            
+            .sphere-text {
+                color: white;
+                font-size: 24px;
+                font-weight: bold;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .sphere-line {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: rgba(255, 255, 255, 0.3);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            
+            @keyframes pulse-ring {
+                0% {
+                    transform: scale(0.8);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: scale(1.1);
+                    opacity: 0.4;
+                }
+                100% {
+                    transform: scale(0.8);
+                    opacity: 0.8;
+                }
+            }
+            
+            /* Form Styles */
+            .form-input {
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 4px;
+                margin-bottom: 16px;
+                font-size: 14px;
+                transition: border-color 0.3s;
+            }
+            
+            .form-input:focus {
+                outline: none;
+                border-color: #a4006e;
+            }
+            
+            .form-select {
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 4px;
+                margin-bottom: 16px;
+                font-size: 14px;
+                appearance: none;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a0aec0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+                background-size: 16px;
+            }
+            
+            .form-select:focus {
+                outline: none;
+                border-color: #a4006e;
+            }
+            
+            .form-submit {
+                width: 100%;
+                padding: 14px;
+                background-color: #e6b450;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            
+            .form-submit:hover {
+                background-color: #d4a43e;
+            }
+            
+            /* Event Cards */
+            .event-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+            
+            .event-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .event-card img {
+                transition: transform 0.5s ease;
+            }
+            
+            .event-card:hover img {
+                transform: scale(1.1);
+            }
+            
+            .event-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+                padding: 30px 20px 20px;
+                color: white;
+                transition: all 0.3s ease;
+            }
+            
+            .event-card:hover .event-overlay {
+                padding-bottom: 30px;
+            }
+            
+            /* Stats Section */
+            .stats-section {
+                background-color: #1a0012;
+                background-image: radial-gradient(circle, rgba(164, 0, 110, 0.2) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+            
+            /* Floating Animation */
+            .floating {
+                animation: floating 3s ease-in-out infinite;
+            }
+            
+            @keyframes floating {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+            
+            /* Shine Effect */
+            .shine-effect {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .shine-effect::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+                transform: rotate(30deg);
+                transition: all 0.5s;
+                opacity: 0;
+            }
+            
+            .shine-effect:hover::after {
+                animation: shine 1.5s ease-out;
+                opacity: 1;
+            }
+            
+            @keyframes shine {
+                0% {
+                    left: -50%;
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    left: 150%;
+                    opacity: 0;
+                }
+            }
+            
+            /* CTA Section */
+            .cta-section {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying-glow-in-the-dark.webp');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            
+            /* Flip Card */
+            .flip-card {
+                perspective: 1000px;
+                height: 400px;
+            }
+            
+            .flip-card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+            }
+            
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+            
+            .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            
+            .flip-card-back {
+                transform: rotateY(180deg);
+                background-color: #a4006e;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .service-detail-header {
+                height: 60vh;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+            }
+
+            .service-detail-header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+            }
+
+            .feature-card {
+                @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300;
+            }
+
+            .gallery-image {
+                @apply rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+            }
+        </style>
+    </head>
+<body class="bg-gray-50">
+
+    <header class="fixed w-full z-50 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="./index.html">
+                    <span class="text-white text-2xl font-bold">Mandakini Events</span>
+                </a>
+            </div>
+            <!-- Desktop Menu Button -->
+            <button id="desktopMenuBtn" class="hidden md:block text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+    
+
+    <!-- Service Hero Section -->
+    <section class="service-detail-header">
+        <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+            <div class="text-white max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6"></h1>
+                <p class="text-xl md:text-2xl opacity-90"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <section class="service-detail-content -mt-20 relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-xl shadow-2xl p-8 md:p-12">
+                <!-- Overview Section -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold mb-6">Overview</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed service-description"></p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8">What We Offer</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 features-grid">
+                        <!-- Features will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Gallery Section -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold mb-8">Gallery</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 gallery-grid">
+                        <!-- Gallery images will be inserted here -->
+                         
+                    </div>
+                </div>
+
+                <!-- Testimonials Section -->
+                <div class="mb-16 testimonials-section">
+                    <h2 class="text-3xl font-bold mb-8">What Our Clients Say</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Testimonials will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="text-center py-8">
+                    <div class="cta-buttons space-x-4">
+                        <!-- CTA buttons will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">EVENIZER</h3>
+                    <p class="text-gray-400 mb-6">We create unforgettable experiences for all your special occasions. From weddings to corporate events, we handle it all with style and precision.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Wedding Planning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Birthday Parties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Music Concerts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Private Parties</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Decoration Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">123 Event Street, New York, NY 10001, USA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">+1 (123) 456-7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">info@evenizer.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Evenizer. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./serviceHandler.js"></script>
+    <script>
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+        
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.querySelector('div').classList.remove('animate__fadeInLeft');
+            });
+            
+            slides[index].classList.add('active');
+            slides[index].querySelector('div').classList.add('animate__fadeInLeft');
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            // Run the animation when the element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCount();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(counter);
+        });
+        
+        // Mobile Menu Toggle
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.querySelector('nav.hidden');
+        
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('w-full');
+                mobileMenu.classList.toggle('bg-white');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('shadow-md');
+                mobileMenu.classList.toggle('space-y-4');
+            });
+        }
+        
+        // Modal
+        const modal = document.getElementById('contactModal');
+        const contactBtn = document.getElementById('contactBtn');
+        const closeModal = document.querySelector('.close-modal');
+        
+        contactBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+        
+        // Add hover animations to cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('animate__animated', 'animate__pulse');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('animate__animated', 'animate__pulse');
+            });
+        });
+    </script>
+</body>
+</html> 

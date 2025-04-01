@@ -1,0 +1,341 @@
+{
+    "services": {
+      "corporate-events": {
+        "category": "Corporate Events",
+        "items": {
+          "mice-conferences": {
+            "title": "MICE and Conferences",
+            "slug": "mice-conferences",
+            "heroImage": "/images/services/mice-conferences.jpg",
+            "description": "Professional MICE and conference management services tailored for corporate needs.",
+            "overview": "Our MICE (Meetings, Incentives, Conferences, and Exhibitions) services provide end-to-end solutions for your corporate events. We handle everything from planning to execution with precision and professionalism.",
+            "features": [
+              "Full-service conference planning and execution",
+              "Venue selection and management",
+              "Registration and attendee management",
+              "Technical equipment and support",
+              "Catering services",
+              "Post-event reporting"
+            ],
+            "gallery": [
+              "/images/gallery/mice-1.jpg",
+              "/images/gallery/mice-2.jpg",
+              "/images/gallery/mice-3.jpg"
+            ],
+            "testimonials": [
+              {
+                "name": "John Smith",
+                "company": "Tech Corp",
+                "text": "Exceptional conference management services that exceeded our expectations."
+              },
+              {
+                "name": "Sarah Johnson",
+                "company": "Global Inc",
+                "text": "The team handled our international conference with incredible attention to detail."
+              }
+            ]
+          },
+          "award-ceremonies": {
+            "title": "Award Ceremonies",
+            "slug": "award-ceremonies",
+            "heroImage": "/images/services/awards.jpeg",
+            "description": "Create memorable award ceremonies that celebrate achievement and success.",
+            "overview": "We design and execute spectacular award ceremonies that honor achievements while creating lasting impressions for all attendees.",
+            "features": [
+              "Custom award show planning",
+              "Stage design and production",
+              "Award presentation coordination",
+              "Entertainment programming",
+              "Red carpet experience",
+              "Professional photography and videography"
+            ],
+            "gallery": [
+              "/images/gallery/awards-1.jpeg",
+              "/images/gallery/awards-2.jpeg",
+              "/images/gallery/awards-3.jpeg"
+            ],
+            "testimonials": [
+              {
+                "name": "Michael Brown",
+                "company": "Vision Ltd",
+                "text": "Our award ceremony was a huge success thanks to their creative direction."
+              }
+            ]
+          },
+          "product-launch": {
+            "title": "Product Launch",
+            "slug": "product-launch",
+            "heroImage": "/images/services/product-launch.png",
+            "description": "Innovative product launch events that create buzz and excitement.",
+            "overview": "Launch your products with impact through our creative and strategic event planning services.",
+            "features": [
+              "Creative concept development",
+              "Brand integration",
+              "Media coordination",
+              "Interactive demonstrations",
+              "Guest experience management",
+              "Social media coverage"
+            ],
+            "gallery": [
+              "/images/gallery/launch-1.png",
+              "/images/gallery/launch-2.jpg",
+              "/images/gallery/launch-3.jpg"
+            ],
+            "testimonials": [
+              {
+                "name": "Emily Davis",
+                "company": "Innovate Co",
+                "text": "The product launch event created unprecedented buzz for our brand."
+              }
+            ]
+          },
+          "success-party": {
+            "title": "Success Party",
+            "slug": "success-party",
+            "heroImage": "/images/services/success-party.jpeg",
+            "description": "Celebrate achievements with perfectly planned success parties.",
+            "overview": "Mark your milestones with celebratory events that reflect your success and company culture.",
+            "features": [
+              "Venue decoration",
+              "Entertainment planning",
+              "Catering arrangements",
+              "Theme implementation",
+              "Guest list management",
+              "Event photography"
+            ],
+            "gallery": [
+              "/images/gallery/success-1.jpeg",
+              "/images/gallery/success-2.jpeg",
+              "/images/gallery/success-3.jpeg"
+            ],
+            "testimonials": [
+              {
+                "name": "David Lee",
+                "company": "Progress Inc",
+                "text": "A fantastic celebration that our entire team will remember forever."
+              }
+            ]
+          }
+        }
+      },
+      "btl-promotion": {
+        "category": "BTL / Brand Promotion",
+        "items": {
+          "corporate-activation": {
+            "title": "Corporate Activation",
+            "slug": "corporate-activation",
+            "heroImage": "/images/services/corporate-activation.jpeg",
+            "description": "Strategic brand activation solutions for corporate environments.",
+            "overview": "Transform your brand presence in corporate spaces with our innovative activation strategies. We create meaningful interactions between your brand and your target audience.",
+            "features": [
+              "Custom activation strategy development",
+              "Employee engagement programs",
+              "Office premises branding",
+              "Corporate event activations",
+              "Brand experience zones",
+              "Interactive digital installations",
+              "Performance metrics tracking"
+            ],
+            "gallery": [
+              "/images/gallery/activation-1.jpeg",
+              "/images/gallery/activation-2.jpeg",
+              "/images/gallery/activation-3.jpeg"
+            ],
+            "testimonials": [
+              {
+                "name": "Amit Shah",
+                "company": "TechCorp India",
+                "text": "Their corporate activation campaign significantly improved our brand visibility and employee engagement."
+              }
+            ]
+          },
+          "society-activation": {
+            "title": "Society Activation",
+            "slug": "society-activation",
+            "heroImage": "/images/services/society-activation.jpeg",
+            "description": "Engaging residential communities through innovative brand activations.",
+            "overview": "Connect with your target audience right where they live. Our society activation programs create memorable brand experiences in residential complexes.",
+            "features": [
+              "Community engagement programs",
+              "Door-to-door campaigns",
+              "Society event sponsorships",
+              "Product sampling",
+              "Interactive kiosks",
+              "Community games and contests",
+              "Resident feedback collection"
+            ],
+            "gallery": [
+              "/images/gallery/society-1.jpeg",
+              "/images/gallery/society-2.jpeg",
+              "/images/gallery/society-3.jpeg"
+            ]
+          },
+          "retail-activation": {
+            "title": "In-Shop / Retail Activation",
+            "slug": "retail-activation",
+            "heroImage": "/images/services/retail-activation.jpeg",
+            "description": "Maximize brand visibility and sales through in-store activations.",
+            "overview": "Create impactful brand presence at the point of purchase. Our retail activation strategies drive customer engagement and boost sales.",
+            "features": [
+              "In-store display design",
+              "Product demonstrations",
+              "Shop-in-shop setups",
+              "Visual merchandising",
+              "Staff training",
+              "Customer interaction programs",
+              "Sales tracking systems"
+            ]
+          },
+          "mall-activation": {
+            "title": "Mall Activation",
+            "slug": "mall-activation",
+            "heroImage": "/images/services/mall-activation.jpeg",
+            "description": "Dynamic mall activation campaigns that capture audience attention.",
+            "overview": "Transform mall spaces into brand experience zones. We create engaging activations that attract and retain customer interest.",
+            "features": [
+              "Interactive brand zones",
+              "Mall event management",
+              "Product launch activities",
+              "Flash mobs and performances",
+              "Digital engagement solutions",
+              "Footfall tracking",
+              "Cross-promotion opportunities"
+            ]
+          },
+          "college-activation": {
+            "title": "College Activation",
+            "slug": "college-activation",
+            "heroImage": "/images/services/college-activation.jpeg",
+            "description": "Connect with young audiences through campus activation programs.",
+            "overview": "Engage with the youth through targeted college activation campaigns. We create relevant and exciting brand experiences for college students.",
+            "features": [
+              "Campus ambassador programs",
+              "College fest sponsorships",
+              "Student engagement activities",
+              "Social media integration",
+              "Youth-focused competitions",
+              "Career fair presence",
+              "Campus merchandising"
+            ]
+          }
+        }
+      },
+      "choreography-activities": {
+        "category": "Choreography / Activities",
+        "items": {
+          "school-choreography": {
+            "title": "School Annual Choreography",
+            "slug": "school-choreography",
+            "heroImage": "/images/services/school-dance.jpeg",
+            "description": "Professional choreography services for school annual days and events.",
+            "overview": "Create memorable performances that showcase student talent. Our experienced choreographers work with different age groups to create age-appropriate, engaging performances.",
+            "features": [
+              "Age-appropriate choreography",
+              "Music selection and editing",
+              "Costume consultation",
+              "Regular practice sessions",
+              "Performance preparation",
+              "Final day coordination"
+            ],
+            "gallery": [
+              "/images/gallery/school-1.jpeg",
+              "/images/gallery/school-2.jpeg",
+              "/images/gallery/school-3.jpeg"
+            ],
+            "testimonials": [
+              {
+                "name": "Priya Sharma",
+                "company": "Bright Future School",
+                "text": "The students' performance was outstanding thanks to their guidance."
+              }
+            ]
+          },
+          "wedding-choreography": {
+            "title": "Wedding Choreography",
+            "slug": "wedding-choreography",
+            "heroImage": "/images/services/wedding-dance.jpg",
+            "description": "Custom choreography for wedding celebrations.",
+            "overview": "Make your wedding celebrations memorable with perfectly choreographed performances. We create special dance routines for all wedding functions.",
+            "features": [
+              "Sangeet performances",
+              "Couple dance choreography",
+              "Family dance coordination",
+              "Music selection and mixing",
+              "Theme-based routines",
+              "Practice sessions",
+              "Last-minute support"
+            ]
+          },
+          "zumba-session": {
+            "title": "Corporate Zumba Sessions",
+            "slug": "zumba-session",
+            "heroImage": "/images/services/zumba.jpg",
+            "description": "Energizing Zumba sessions for corporate wellness.",
+            "overview": "Bring fitness and fun to your workplace with our corporate Zumba sessions. Our certified instructors create engaging workout experiences.",
+            "features": [
+              "Certified Zumba instructors",
+              "Customized session plans",
+              "Music and equipment setup",
+              "Multiple difficulty levels",
+              "Progress tracking",
+              "Group activities",
+              "Wellness challenges"
+            ]
+          },
+          "yoga-session": {
+            "title": "Corporate Yoga Sessions",
+            "slug": "yoga-session",
+            "heroImage": "/images/services/yoga.jpg",
+            "description": "Professional yoga sessions for corporate wellness programs.",
+            "overview": "Promote wellness and stress management through corporate yoga sessions. Our experienced instructors provide holistic yoga training.",
+            "features": [
+              "Certified yoga instructors",
+              "Customized yoga programs",
+              "Meditation sessions",
+              "Breathing exercises",
+              "Stress management techniques",
+              "Regular assessments",
+              "Corporate wellness tracking"
+            ]
+          }
+        }
+      },
+      "additional-services": {
+        "category": "Additional Services",
+        "items": {
+          "corporate-gifting": {
+            "title": "Corporate Gifting / Merchandise",
+            "slug": "corporate-gifting",
+            "heroImage": "/images/services/gifting.jpeg",
+            "whatsapp": "https://wa.me/your-number",
+            "description": "Custom corporate gifts and branded merchandise solutions.",
+            "overview": "Enhance your corporate relationships with premium gifting solutions tailored to your brand.",
+            "features": [
+              "Custom gift design",
+              "Brand customization",
+              "Bulk order management",
+              "Quality assurance",
+              "Packaging solutions",
+              "Delivery coordination"
+            ]
+          },
+          "promotional-manpower": {
+            "title": "Promotional Manpower",
+            "slug": "promotional-manpower",
+            "heroImage": "/images/services/manpower.jpeg",
+            "whatsapp": "https://wa.me/your-number",
+            "description": "Professional staff for promotional activities and events.",
+            "overview": "Reliable and trained personnel to execute your promotional campaigns effectively.",
+            "features": [
+              "Professional staff training",
+              "Event staffing",
+              "Brand ambassador services",
+              "Crowd management",
+              "Performance monitoring",
+              "Uniform coordination"
+            ]
+          }
+        }
+      }
+    }
+  }

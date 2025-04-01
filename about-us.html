@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Mandakini Social & Corporate Events</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#a4006e',
+                            600: '#8a005d',
+                            700: '#70004b',
+                            800: '#570039',
+                            900: '#3d0027',
+                        },
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Card Animations */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Button Animations */
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(164, 0, 110, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(164, 0, 110, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(164, 0, 110, 0);
+            }
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: block;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            max-width: 900px;
+            position: relative;
+            display: flex;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-left {
+            width: 50%;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .modal-right {
+            width: 50%;
+            padding: 40px;
+            background-color: white;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+        
+        .close-modal:hover {
+            color: #000;
+        }
+        
+        /* Rotating Sphere */
+        .sphere-container {
+            position: relative;
+            z-index: 5;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .sphere {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate 10s linear infinite;
+            background: rgba(138, 0, 93, 0.2);
+        }
+        
+        .sphere::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: pulse-ring 2s linear infinite;
+        }
+        
+        .sphere-text {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .sphere-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+        }
+        
+        /* Form Styles */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #a4006e;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a0aec0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #a4006e;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: #e6b450;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-submit:hover {
+            background-color: #d4a43e;
+        }
+        
+        /* Page Header */
+        .page-header {
+            position: relative;
+            height: 50vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #a4006e;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #a4006e;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f9f9f9;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f9f9f9 transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid #f9f9f9;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #f9f9f9 transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Shine Effect */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .shine-effect:hover::after {
+            animation: shine 1.5s ease-out;
+            opacity: 1;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -50%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 150%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-white text-3xl font-bold">Mandakini Events</span>
+            </div>
+            <!-- Desktop Menu Button -->
+            <button id="desktopMenuBtn" class="hidden md:block text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Crafting Unforgettable Experiences That Leave a Lasting Impression</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="text-maroon-500 font-medium mb-2">Who We Are</div>
+                    <h2 class="text-3xl font-bold mb-6">Mandakini Social & Corporate Events</h2>
+                    <p class="text-gray-600 mb-6">Forget cookie-cutter events. We're Mandakini Social & Corporate Events, a passionate team of event architects based right here in India, dedicated to crafting unforgettable experiences that leave a lasting impression.</p>
+                    <p class="text-gray-600 mb-6">Think of us as your creative partners, your logistical wizards, and your on-the-ground execution experts. Whether you're aiming to ignite your brand with a high-energy activation, inspire your team with a seamless corporate event, celebrate milestones with a vibrant social gathering, or create lasting memories through thoughtful corporate gifts and dazzling sangeet choreography – we've got you covered.</p>
+                    <div class="mt-8">
+                        <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block shine-effect">Our Services</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+                    <div class="overflow-hidden rounded-lg">
+                        <img src="./images/gallery/activation-1.jpeg" alt="Corporate event" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg mt-8">
+                        <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Social event" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Brand activation" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="overflow-hidden rounded-lg mt-8">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Event planning" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <div class="text-maroon-500 font-medium mb-2">Our Journey</div>
+                <h2 class="text-3xl font-bold mb-4">The Mandakini Story</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">From humble beginnings to becoming one of India's most innovative event management companies.</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-xl mb-2">2015</h3>
+                        <p>Mandakini was born from a simple idea: events should be as unique as the people they celebrate. Our founders, with backgrounds in design, hospitality, and marketing, came together with a shared vision of transforming India's event landscape.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-container right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-xl mb-2">2017</h3>
+                        <p>After successfully executing over 50 corporate and social events, we expanded our team and services to include brand activations and campus events, bringing fresh energy and innovative concepts to younger audiences.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-xl mb-2">2019</h3>
+                        <p>Recognizing the growing demand for personalized experiences, we launched our corporate gifting division and sangeet choreography services, offering clients a truly end-to-end event solution.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-container right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-xl mb-2">2021</h3>
+                        <p>During the pandemic, we pivoted to virtual and hybrid events, developing innovative digital solutions that kept people connected when they couldn't be together physically.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="font-bold text-xl mb-2">2025</h3>
+                        <p>Today, Mandakini stands as a leader in the event industry, with a portfolio of over 500 successful events, a team of 30+ creative professionals, and a reputation for excellence that speaks for itself.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Mission -->
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 floating">
+                        <i class="fas fa-bullseye text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-gray-600 mb-4">To transform ordinary moments into extraordinary memories through innovative event solutions that inspire, engage, and delight. We are committed to exceeding expectations, fostering meaningful connections, and delivering experiences that resonate long after the event concludes.</p>
+                    <p class="text-gray-600">Every event we create is designed with purpose, executed with precision, and infused with the unique personality of our clients and their audiences.</p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-6 floating">
+                        <i class="fas fa-eye text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-gray-600 mb-4">To be India's most trusted and innovative event partner, recognized for our creativity, reliability, and ability to bring visions to life. We aspire to set new standards in the industry, continuously pushing boundaries and redefining what's possible in event experiences.</p>
+                    <p class="text-gray-600">We envision a future where every Mandakini event creates ripples of positive impact, fostering communities, strengthening brands, and creating joyful memories that last a lifetime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Us Different Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <div class="text-maroon-500 font-medium mb-2">Our Approach</div>
+                <h2 class="text-3xl font-bold mb-4">What Makes Us Different</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">At Mandakini, we don't just plan events – we craft experiences that tell your story, achieve your goals, and leave lasting impressions.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Difference 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-comments text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">We Speak Your Language</h3>
+                    <p class="text-gray-600 mb-4">We take the time to truly understand your vision, your goals, and your audience, ensuring every detail resonates. Our consultative approach means we listen first, then create solutions tailored specifically to you.</p>
+                </div>
+                
+                <!-- Difference 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-lightbulb text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Creativity Unleashed</h3>
+                    <p class="text-gray-600 mb-4">Expect fresh, innovative ideas that break the mold and capture attention. We're not afraid to think outside the box (and sometimes build a whole new one!). Our team of creative professionals brings diverse perspectives to every project.</p>
+                </div>
+                
+                <!-- Difference 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-tasks text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Seamless Execution</h3>
+                    <p class="text-gray-600 mb-4">From initial concept to flawless wrap-up, we handle all the logistics, so you can relax and enjoy the event. Our meticulous planning and attention to detail ensure nothing is left to chance.</p>
+                </div>
+                
+                <!-- Difference 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-globe text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">A Spectrum of Expertise</h3>
+                    <p class="text-gray-600 mb-4">Corporate powerhouses, buzzing campuses, intimate celebrations – our diverse experience across corporate events, brand activation, school/college events, social gatherings, corporate gifting, and sangeet choreography means we bring a wealth of knowledge to every project. Our versatility allows us to handle events of any scale or type with equal expertise.</p>
+                </div>
+                
+                <!-- Difference 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-heart text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Your Success is Our Success</h3>
+                    <p class="text-gray-600 mb-4">We're invested in making your event a resounding success, and we go the extra mile to ensure that happens. We measure our success by your satisfaction and the achievement of your event objectives.</p>
+                </div>
+                
+                <!-- Difference 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
+                        <i class="fas fa-handshake text-maroon-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Long-term Partnerships</h3>
+                    <p class="text-gray-600 mb-4">We don't just aim for one-off events; we build lasting relationships with our clients. Many of our clients have been with us for years, trusting us with their most important occasions time and again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <div class="text-maroon-500 font-medium mb-2">Meet The Team</div>
+                <h2 class="text-3xl font-bold mb-4">The Faces Behind Mandakini</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Our diverse team of creative professionals brings passion, expertise, and a personal touch to every event we create.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Rajiv Sharma</h3>
+                        <p class="text-maroon-600 mb-3">Founder & Creative Director</p>
+                        <p class="text-gray-600 mb-4">With over 15 years in event design, Rajiv brings creative vision and strategic thinking to every project.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Priya Malhotra</h3>
+                        <p class="text-maroon-600 mb-3">Operations Director</p>
+                        <p class="text-gray-600 mb-4">Priya's exceptional organizational skills and attention to detail ensure flawless execution of every event.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Arjun Kapoor</h3>
+                        <p class="text-maroon-600 mb-3">Brand Activation Specialist</p>
+                        <p class="text-gray-600 mb-4">Arjun's innovative approach to brand experiences has helped numerous clients achieve remarkable engagement.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80" alt="Team Member" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Meera Patel</h3>
+                        <p class="text-maroon-600 mb-3">Choreography Director</p>
+                        <p class="text-gray-600 mb-4">Meera's background in professional dance brings energy and precision to our sangeet choreography services.</p>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-600 hover:text-maroon-600"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block shine-effect">Meet The Full Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <div class="text-maroon-500 font-medium mb-2">Client Testimonials</div>
+                <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Don't just take our word for it – hear from those who have experienced the Mandakini difference firsthand.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Mandakini transformed our corporate conference from a standard business meeting into an engaging, memorable experience. Their attention to detail and creative approach exceeded our expectations at every turn."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold">Vikram Mehta</h4>
+                            <p class="text-gray-600">Marketing Director, TechInnovate</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Our daughter's wedding was nothing short of magical, thanks to Mandakini. From the stunning decor to the perfectly choreographed sangeet, every element was thoughtfully designed and flawlessly executed."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold">Sunita & Rajan Gupta</h4>
+                            <p class="text-gray-600">Wedding Clients</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"The brand activation Mandakini designed for our product launch generated more buzz than we could have imagined. Their innovative approach and flawless execution resulted in record-breaking engagement and sales."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Client" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold">Ananya Singh</h4>
+                            <p class="text-gray-600">Brand Manager, LuxeBeauty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-maroon-700 text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Turn Your Event Dreams into Reality?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Let's chat about your vision and how we can bring it to life with the Mandakini touch.</p>
+            <a href="#" class="bg-white text-maroon-700 px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 inline-block btn-pulse">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">MANDAKINI</h3>
+                    <p class="text-gray-400 mb-6">Making Moments that Matter. We create unforgettable experiences for all your special occasions and corporate needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">Home</a></li>
+                        <li><a href="about-us.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Team</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Brand Activations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Social Gatherings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">School/College Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Gifting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Sangeet Choreography</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">123 Event Street, Mumbai, Maharashtra 400001, India</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">info@mandakini.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Mandakini Social & Corporate Events. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content animate__animated animate__fadeInDown">
+            <span class="close-modal">&times;</span>
+            <div class="flex flex-col md:flex-row">
+                <div class="modal-left">
+                    <div class="sphere-container">
+                        <div class="sphere">
+                            <div class="sphere-line"></div>
+                            <div class="sphere-line" style="transform: translateY(-50%) rotate(45deg);"></div>
+                            <div class="sphere-line" style="transform: translateY(-50%) rotate(90deg);"></div>
+                            <div class="sphere-line" style="transform: translateY(-50%) rotate(135deg);"></div>
+                            <div class="sphere-text">360°</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <h2 class="text-3xl font-bold mb-4">HIRE A PLANNER</h2>
+                    <p class="text-gray-600 mb-6">Drop your Requirements. We will get back to you with the best suitable Proposal for your brand.</p>
+                    <form>
+                        <input type="text" placeholder="Name" class="form-input">
+                        <input type="email" placeholder="Email" class="form-input">
+                        <input type="tel" placeholder="Mobile" class="form-input">
+                        <input type="text" placeholder="Company" class="form-input">
+                        <input type="text" placeholder="Location" class="form-input">
+                        <select class="form-select">
+                            <option value="">Event Type</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="social">Social Gathering</option>
+                            <option value="brand">Brand Activation</option>
+                            <option value="school">School/College Event</option>
+                            <option value="gifting">Corporate Gifting</option>
+                            <option value="sangeet">Sangeet Choreography</option>
+                        </select>
+                        <button type="submit" class="form-submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <!-- AOS Animation Script -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+        
+        // Mobile Menu Toggle
+        const menuButton = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.querySelector('nav.hidden');
+        
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                mobileMenu.classList.toggle('flex-col');
+                mobileMenu.classList.toggle('absolute');
+                mobileMenu.classList.toggle('top-16');
+                mobileMenu.classList.toggle('left-0');
+                mobileMenu.classList.toggle('w-full');
+                mobileMenu.classList.toggle('bg-white');
+                mobileMenu.classList.toggle('p-4');
+                mobileMenu.classList.toggle('shadow-md');
+                mobileMenu.classList.toggle('space-y-4');
+            });
+        }
+        
+        // Modal
+        const modal = document.getElementById('contactModal');
+        const contactBtn = document.getElementById('contactBtn');
+        const closeModal = document.querySelector('.close-modal');
+        
+        contactBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+        
+        // Add hover animations to cards
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('animate__animated', 'animate__pulse');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('animate__animated', 'animate__pulse');
+            });
+        });
+    </script>
+</body>
+</html>
