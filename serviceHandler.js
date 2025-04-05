@@ -1,7 +1,7 @@
 // Function to get service data from JSON
 async function getServiceData(slug) {
     try {
-        const response = await fetch('./data/services.json');
+        const response = await fetch('/public/data/services.json');
         const data = await response.json();
         
         for (const categoryKey in data.services) {
