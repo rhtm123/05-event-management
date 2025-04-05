@@ -5,6 +5,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: './index.html',
+        service: './service.html',
+        services: './services.html',
+        about: './about-us.html',
+        
                 // Add more HTML files as needed
       }
     }
