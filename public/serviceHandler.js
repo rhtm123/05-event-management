@@ -1,7 +1,7 @@
 // Function to get service data from JSON
 async function getServiceData(slug) {
     try {
-        const response = await fetch('/public/data/services.json');
+        const response = await fetch('/data/services.json');
         const data = await response.json();
         
         for (const categoryKey in data.services) {
@@ -97,7 +97,7 @@ async function renderServicePage() {
     const ctaButtons = document.querySelector('.cta-buttons');
     if (ctaButtons) {
         ctaButtons.innerHTML = `
-            <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block shine-effect">Contact Us</a>
+            <a href="/contact.html" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block shine-effect">Contact Us</a>
             ${serviceData.whatsapp ? `<a href="${serviceData.whatsapp}" class="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-600 transition duration-300 inline-block shine-effect">WhatsApp</a>` : ''}
         `;
     }

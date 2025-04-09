@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Mandakini Events</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#a4006e',
+                            600: '#8a005d',
+                            700: '#70004b',
+                            800: '#570039',
+                            900: '#3d0027',
+                        },
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .contact-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-label {
+            @apply block text-gray-700 font-medium mb-2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <span class="text-maroon-600 text-3xl font-bold">Mandakini Events</span>
+                </a>
+            </div>
+            <!-- Desktop Menu Button -->
+            <button id="desktopMenuBtn" class="hidden md:block text-maroon-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-maroon-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="sideMenu" class="fixed top-0 right-0 w-64 md:w-full h-full bg-black bg-opacity-90 z-50 transform translate-x-full transition-transform duration-300">
+        <button id="closeMenuBtn" class="absolute top-4 right-4 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Home</a>
+            <a href="services.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Services</a>
+            <a href="about-us.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">About</a>
+            <a href="contact.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Contact Header -->
+    <section class="contact-header py-32 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">Get in Touch</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We'd love to hear from you. Let's create something amazing together!
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 contact-card" data-aos="fade-right">
+                    <h2 class="text-3xl font-bold mb-6">Send us a Message</h2>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:border-maroon-500 focus:ring-2 focus:ring-maroon-200 transition duration-300" placeholder="Enter your name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:border-maroon-500 focus:ring-2 focus:ring-maroon-200 transition duration-300" placeholder="Enter your email" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:border-maroon-500 focus:ring-2 focus:ring-maroon-200 transition duration-300" placeholder="Enter your phone number">
+                        </div>
+                        <div>
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:border-maroon-500 focus:ring-2 focus:ring-maroon-200 transition duration-300">
+                                <option value="">Select a service</option>
+                                <option value="corporate-events">Corporate Events</option>
+                                <option value="btl-activation">BTL Activation</option>
+                                <option value="choreography">Choreography</option>
+                                <option value="corporate-gifting">Corporate Gifting</option>
+                                <option value="promotional-manpower">Promotional Manpower</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:border-maroon-500 focus:ring-2 focus:ring-maroon-200 transition duration-300 h-32" placeholder="Tell us about your event requirements"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full bg-maroon-600 hover:bg-maroon-700 text-white border-none">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Office Location -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-maroon-100 p-4 rounded-full">
+                                <i class="fas fa-map-marker-alt text-maroon-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Our Office</h3>
+                                <p class="text-gray-600">123 Business Hub, Sector 2<br>Naigaon, Mumbai</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Numbers -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-maroon-100 p-4 rounded-full">
+                                <i class="fas fa-phone-alt text-maroon-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                                <p class="text-gray-600">+91 98765 43210<br>+91 98765 43211</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-maroon-100 p-4 rounded-full">
+                                <i class="fas fa-envelope text-maroon-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                                <p class="text-gray-600 break-all">info@mandakinievents.com<br>support@mandakinievents.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-maroon-100 p-4 rounded-full">
+                                <i class="fas fa-clock text-maroon-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Business Hours</h3>
+                                <p class="text-gray-600">Monday - Saturday: 9:00 AM - 7:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="zoom-in">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.7801030387964!2d72.85321431538447!3d19.1610538870374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1647851557155!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">MANDAKINI EVENTS</h3>
+                    <p class="text-gray-400 mb-6">Creating unforgettable experiences through innovative event planning and flawless execution. Your vision, our expertise.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./service.html?service=mice-conferences" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
+                        <li><a href="./service.html?service=corporate-activation" class="text-gray-400 hover:text-maroon-400 transition duration-300">BTL Activation</a></li>
+                        <li><a href="./service.html?service=school-choreography" class="text-gray-400 hover:text-maroon-400 transition duration-300">Choreography</a></li>
+                        <li><a href="./service.html?service=corporate-gifting" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Gifting</a></li>
+                        <li><a href="./service.html?service=promotional-manpower" class="text-gray-400 hover:text-maroon-400 transition duration-300">Promotional Manpower</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./about.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
+                        <li><a href="./contact.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">123 Business Hub, Sector 2<br>Naigaon, Mumbai</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">info@mandakinievents.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Mandakini Events. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false
+        });
+
+        // Removed redundant Mobile Menu Toggle and Form Submission logic
+        // That logic is now handled by script.js
+    </script>
+    <script src="./script.js"></script>
+</body>
+</html> 

@@ -9,6 +9,7 @@ export default defineConfig({
         services: './services.html',
         about: './about-us.html',
         data: './public/data/services.json',
+        contact: './contact.html',
 
                 // Add more HTML files as needed
       }

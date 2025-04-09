@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Open modal only for specific buttons
     document.addEventListener('click', function(e) {
+        console.log('Click detected. Target:', e.target); // Debug log
+        
         // List of classes that should trigger the modal
         const triggerClasses = [
             'contact-trigger',
@@ -65,13 +67,23 @@ document.addEventListener('DOMContentLoaded', function() {
             e.target.closest(`.${className}`)
         );
 
-        // Exclude navigation and footer links
+        const clickedLink = e.target.closest('a'); // Find the nearest ancestor link
+        console.log('Closest link found:', clickedLink); // Debug log
+        const linkHref = clickedLink?.getAttribute('href');
+        console.log('Link href:', linkHref); // Debug log
+        
+        // Exclude navigation, footer links, service links, and the main contact page link
         const isExcluded = 
             e.target.closest('nav') || 
             e.target.closest('footer') ||
-            e.target.getAttribute('href')?.includes('service.html');
+            linkHref?.includes('service.html') || // Check href of the link
+            linkHref === '/contact.html'; // Allow direct navigation to /contact.html
+        
+        console.log('Should Trigger Modal?:', shouldTrigger); // Debug log
+        console.log('Is Navigation Excluded?:', isExcluded); // Debug log
 
         if (shouldTrigger && !isExcluded) {
+            console.log('Preventing default navigation and opening modal...'); // Debug log
             e.preventDefault();
             openModal();
         }
