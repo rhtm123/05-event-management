@@ -37,7 +37,27 @@
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
                     },
-                }
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-ring': 'pulse-ring 2s linear infinite',
+                        'shine': 'shine 1.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'pulse-ring': {
+                            '0%, 100%': { transform: 'scale(0.8)', opacity: '0.8' },
+                            '50%': { transform: 'scale(1.1)', opacity: '0.4' },
+                        },
+                        shine: {
+                            '0%': { left: '-50%', opacity: '0' },
+                            '50%': { opacity: '1' },
+                            '100%': { left: '150%', opacity: '0' },
+                        },
+                    },
+                },
             }
         }
     </script>
@@ -532,7 +552,7 @@
     
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <!-- <section id="about" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="grid grid-cols-2 gap-4" data-aos="fade-right">
@@ -586,7 +606,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Services Section -->
     <section class="py-16">
@@ -598,64 +618,74 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Corporate Events -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-building text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-building text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Corporate Events</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Corporate Events</h3>
                     <p class="text-gray-600 mb-4">Professional MICE, conferences, award ceremonies, and product launches for your business needs.</p>
-                    <a href="./service.html?service=mice-conferences" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
+                    <a href="./category.html?category=corporate-events" class="text-maroon-600 font-medium hover:text-maroon-700 group">View All Corporate Events <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
                 </div>
                 
                 <!-- BTL/Brand Promotion -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-bullhorn text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-bullhorn text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">BTL / Brand Promotion</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">BTL / Brand Promotion</h3>
                     <p class="text-gray-600 mb-4">Strategic brand activation services for corporate, retail, and educational sectors.</p>
-                    <a href="./service.html?service=corporate-activation" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
+                    <a href="./category.html?category=btl-promotion" class="text-maroon-600 font-medium hover:text-maroon-700 group">View All BTL Services <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
                 </div>
                 
                 <!-- Choreography -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-music text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-music text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Choreography & Activities</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Choreography & Activities</h3>
                     <p class="text-gray-600 mb-4">Professional dance choreography for schools, weddings, and corporate wellness sessions.</p>
-                    <a href="./service.html?service=school-choreography" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
+                    <a href="./category.html?category=choreography-activities" class="text-maroon-600 font-medium hover:text-maroon-700 group">View All Activities <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
                 </div>
                 
                 <!-- Corporate Gifting -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-gift text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-gift text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Corporate Gifting</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Corporate Gifting</h3>
                     <p class="text-gray-600 mb-4">Custom corporate gifts and branded merchandise solutions for your business needs.</p>
-                    <a href="./service.html?service=corporate-gifting" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
+                    <a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+corporate+gifting" class="text-maroon-600 font-medium hover:text-maroon-700 group">View Additional Services <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
                 </div>
                 
                 <!-- Promotional Manpower -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-users text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-users text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Promotional Manpower</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Promotional Manpower</h3>
                     <p class="text-gray-600 mb-4">Professional staff and brand ambassadors for your promotional activities and events.</p>
-                    <a href="./service.html?service=promotional-manpower" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
+                    <a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+promotional+manpower" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
                 </div>
                 
                 <!-- Mall Activation -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="600">
+                <!-- <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="600">
                     <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
                         <i class="fas fa-store text-maroon-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Mall Activation</h3>
                     <p class="text-gray-600 mb-4">Engaging mall activation events to create brand awareness and drive customer engagement.</p>
                     <a href="./service.html?service=retail-activation" class="text-maroon-600 font-medium hover:text-maroon-700 group">Read More <i class="fas fa-arrow-right ml-1 transition-transform duration-300 group-hover:translate-x-2"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -710,57 +740,69 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Difference 1 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-comments text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-comments text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">We Listen & Understand</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">We Speak Your Language</h3>
-                    <p class="text-gray-600 mb-4">We take the time to truly understand your vision, your goals, and your audience, ensuring every detail resonates. Our consultative approach means we listen first, then create solutions tailored specifically to you.</p>
+                    <p class="text-gray-600">We take time to understand your vision and goals, creating solutions that perfectly align with your expectations.</p>
                 </div>
                 
                 <!-- Difference 2 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-lightbulb text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-lightbulb text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Creative Excellence</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Creativity Unleashed</h3>
-                    <p class="text-gray-600 mb-4">Expect fresh, innovative ideas that break the mold and capture attention. We're not afraid to think outside the box (and sometimes build a whole new one!). Our team of creative professionals brings diverse perspectives to every project.</p>
+                    <p class="text-gray-600">Innovative ideas that break the mold. We turn ordinary events into extraordinary experiences.</p>
                 </div>
                 
                 <!-- Difference 3 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-tasks text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-tasks text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Flawless Execution</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Seamless Execution</h3>
-                    <p class="text-gray-600 mb-4">From initial concept to flawless wrap-up, we handle all the logistics, so you can relax and enjoy the event. Our meticulous planning and attention to detail ensure nothing is left to chance.</p>
+                    <p class="text-gray-600">Meticulous planning and attention to detail ensure your event runs seamlessly from start to finish.</p>
                 </div>
                 
                 <!-- Difference 4 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-globe text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-globe text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Versatile Expertise</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">A Spectrum of Expertise</h3>
-                    <p class="text-gray-600 mb-4">Corporate powerhouses, buzzing campuses, intimate celebrations – our diverse experience across corporate events, brand activation, school/college events, social gatherings, corporate gifting, and sangeet choreography means we bring a wealth of knowledge to every project. Our versatility allows us to handle events of any scale or type with equal expertise.</p>
+                    <p class="text-gray-600">From corporate events to intimate celebrations, we bring professional excellence to every occasion.</p>
                 </div>
                 
                 <!-- Difference 5 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-heart text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-heart text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Client Success</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Your Success is Our Success</h3>
-                    <p class="text-gray-600 mb-4">We're invested in making your event a resounding success, and we go the extra mile to ensure that happens. We measure our success by your satisfaction and the achievement of your event objectives.</p>
+                    <p class="text-gray-600">Your success is our priority. We go above and beyond to exceed your expectations.</p>
                 </div>
                 
                 <!-- Difference 6 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 floating">
-                        <i class="fas fa-handshake text-maroon-600 text-2xl"></i>
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-maroon-100 w-16 h-16 rounded-full flex items-center justify-center animate-float">
+                            <i class="fas fa-handshake text-maroon-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Lasting Relationships</h3>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Long-term Partnerships</h3>
-                    <p class="text-gray-600 mb-4">We don't just aim for one-off events; we build lasting relationships with our clients. Many of our clients have been with us for years, trusting us with their most important occasions time and again.</p>
+                    <p class="text-gray-600">We build long-term partnerships through trust, reliability, and consistent excellence.</p>
                 </div>
             </div>
         </div>
@@ -771,11 +813,11 @@
 
     
     <!-- CTA Section -->
-    <section class="cta-section py-20 text-white">
+    <section class="py-20 bg-black bg-opacity-70 bg-[url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying-glow-in-the-dark.webp')] bg-cover bg-center bg-fixed text-white">
         <div class="container mx-auto px-4 text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Don't Hesitate to Use Our Services<br>Your Event is Our Priority</h2>
             <p class="text-lg mb-8 max-w-2xl mx-auto">Let us handle all the details of your event while you focus on enjoying the moment with your guests.</p>
-            <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block btn-pulse">Contact Us Now</a>
+            <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 inline-block animate-pulse">Contact Us Now</a>
         </div>
     </section>
 
@@ -862,11 +904,11 @@
                 <div>
                     <h4 class="text-xl font-semibold mb-6">Our Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="./service.html?service=mice-conferences" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
-                        <li><a href="./service.html?service=corporate-activation" class="text-gray-400 hover:text-maroon-400 transition duration-300">BTL Activation</a></li>
-                        <li><a href="./service.html?service=school-choreography" class="text-gray-400 hover:text-maroon-400 transition duration-300">Choreography</a></li>
-                        <li><a href="./service.html?service=corporate-gifting" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Gifting</a></li>
-                        <li><a href="./service.html?service=promotional-manpower" class="text-gray-400 hover:text-maroon-400 transition duration-300">Promotional Manpower</a></li>
+                        <li><a href="./category.html?category=corporate-events" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
+                        <li><a href="./category.html?category=btl-activation" class="text-gray-400 hover:text-maroon-400 transition duration-300">BTL Activation</a></li>
+                        <li><a href="./category.html?category=choreography-activities" class="text-gray-400 hover:text-maroon-400 transition duration-300">Choreography</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+corporate+gifting" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Gifting</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+promotional+manpower" class="text-gray-400 hover:text-maroon-400 transition duration-300">Promotional Manpower</a></li>
                     </ul>
                 </div>
                 
@@ -874,7 +916,7 @@
                 <div>
                     <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="./about.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
+                        <li><a href="./about-us.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
                         <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Our Work</a></li> -->
                         <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Testimonials</a></li> -->
                         <li><a href="./contact.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">Contact</a></li>
@@ -915,9 +957,9 @@
     <script src="./script.js"></script>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content animate__animated animate__fadeInDown">
-            <span class="close-modal">&times;</span>
+    <div id="contactModal" class="modal fixed inset-0 bg-black bg-opacity-70 z-50 overflow-auto">
+        <div class="modal-content bg-white mx-auto my-[5%] max-w-[900px] relative flex rounded-none overflow-hidden shadow-2xl">
+            <span class="close-modal absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-900 cursor-pointer z-10">&times;</span>
             <div class="flex flex-col md:flex-row">
                 <div class="modal-left bg-maroon-600 text-white p-8 hidden md:block">
                     <h3 class="text-2xl font-bold mb-4">Let's Create Your Event</h3>

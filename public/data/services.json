@@ -152,7 +152,7 @@
           "society-activation": {
             "title": "Society Activation",
             "slug": "society-activation",
-            "heroImage": "/images/services/society-activation.jpeg",
+            "heroImage": "/images/services/society-activation.jpg",
             "description": "Engaging residential communities through innovative brand activations.",
             "overview": "Connect with your target audience right where they live. Our society activation programs create memorable brand experiences in residential complexes.",
             "features": [
@@ -173,7 +173,7 @@
           "retail-activation": {
             "title": "In-Shop / Retail Activation",
             "slug": "retail-activation",
-            "heroImage": "/images/services/retail-activation.jpeg",
+            "heroImage": "/images/services/retail-activation.jpg",
             "description": "Maximize brand visibility and sales through in-store activations.",
             "overview": "Create impactful brand presence at the point of purchase. Our retail activation strategies drive customer engagement and boost sales.",
             "features": [
@@ -205,7 +205,7 @@
           "college-activation": {
             "title": "College Activation",
             "slug": "college-activation",
-            "heroImage": "/images/services/college-activation.jpeg",
+            "heroImage": "/images/services/college-activation.jpg",
             "description": "Connect with young audiences through campus activation programs.",
             "overview": "Engage with the youth through targeted college activation campaigns. We create relevant and exciting brand experiences for college students.",
             "features": [
@@ -253,7 +253,7 @@
           "wedding-choreography": {
             "title": "Wedding Choreography",
             "slug": "wedding-choreography",
-            "heroImage": "/images/services/wedding-dance.jpg",
+            "heroImage": "/images/services/school-dance.jpeg",
             "description": "Custom choreography for wedding celebrations.",
             "overview": "Make your wedding celebrations memorable with perfectly choreographed performances. We create special dance routines for all wedding functions.",
             "features": [
@@ -269,7 +269,7 @@
           "zumba-session": {
             "title": "Corporate Zumba Sessions",
             "slug": "zumba-session",
-            "heroImage": "/images/services/zumba.jpg",
+            "heroImage": "/images/services/school-dance.jpeg",
             "description": "Energizing Zumba sessions for corporate wellness.",
             "overview": "Bring fitness and fun to your workplace with our corporate Zumba sessions. Our certified instructors create engaging workout experiences.",
             "features": [
@@ -285,7 +285,7 @@
           "yoga-session": {
             "title": "Corporate Yoga Sessions",
             "slug": "yoga-session",
-            "heroImage": "/images/services/yoga.jpg",
+            "heroImage": "/images/services/school-dance.jpeg",
             "description": "Professional yoga sessions for corporate wellness programs.",
             "overview": "Promote wellness and stress management through corporate yoga sessions. Our experienced instructors provide holistic yoga training.",
             "features": [

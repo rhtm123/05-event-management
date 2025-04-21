@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - Mandakini Events</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#a4006e',
+                            600: '#8a005d',
+                            700: '#70004b',
+                            800: '#570039',
+                            900: '#3d0027',
+                        },
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-poppins">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="./index.html">
+                    <span class="text-maroon-600 text-2xl font-bold">Mandakini Events</span>
+                </a>
+            </div>
+            <!-- Desktop Menu Button -->
+            <button id="desktopMenuBtn" class="hidden md:block text-maroon-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-maroon-600">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="fixed top-0 right-0 w-64 md:w-full h-full bg-black bg-opacity-90 z-50 transform translate-x-full transition-transform duration-300">
+        <button id="closeMenuBtn" class="absolute top-4 right-4 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Home</a>
+            <a href="services.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Services</a>
+            <a href="about-us.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">About</a>
+            <a href="contact.html" class="text-white text-lg md:text-3xl hover:text-maroon-500 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 bg-gradient-to-r from-maroon-800 to-maroon-900 text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 category-title">Corporate Events</h1>
+                <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto category-description">
+                    Professional event management solutions for all your corporate needs
+                </p>
+            </div>
+        </div>
+        <!-- <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50"></div> -->
+    </section>
+
+    <!-- Services List -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="space-y-24" id="servicesList">
+                <!-- Services will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">MANDAKINI EVENTS</h3>
+                    <p class="text-gray-400 mb-6">Creating unforgettable experiences through innovative event planning and flawless execution. Your vision, our expertise.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./category.html?category=corporate-events" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Events</a></li>
+                        <li><a href="./category.html?category=btl-activation" class="text-gray-400 hover:text-maroon-400 transition duration-300">BTL Activation</a></li>
+                        <li><a href="./category.html?category=choreography-activities" class="text-gray-400 hover:text-maroon-400 transition duration-300">Choreography</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+corporate+gifting" class="text-gray-400 hover:text-maroon-400 transition duration-300">Corporate Gifting</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+promotional+manpower" class="text-gray-400 hover:text-maroon-400 transition duration-300">Promotional Manpower</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="./about-us.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">About Us</a></li>
+                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Our Work</a></li> -->
+                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Testimonials</a></li> -->
+                        <li><a href="./contact.html" class="text-gray-400 hover:text-maroon-400 transition duration-300">Contact</a></li>
+                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-400 transition duration-300">Privacy Policy</a></li> -->
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">123 Business Hub, Sector 2<br>Naigaon, Mumbai</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">info@mandakinievents.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-maroon-400"></i>
+                            <span class="text-gray-400">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Mandakini Events. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Function to get category from URL
+        function getCategoryFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('category');
+        }
+
+        // Function to load category data
+        async function loadCategoryData() {
+            try {
+                const response = await fetch('/data/services.json');
+                const data = await response.json();
+                const category = getCategoryFromUrl();
+                
+                if (!category || !data.services[category]) {
+                    window.location.href = '/404.html';
+                    return;
+                }
+
+                // Update page title and description
+                document.querySelector('.category-title').textContent = data.services[category].category;
+                
+                // Generate services list
+                const servicesList = document.getElementById('servicesList');
+                const items = data.services[category].items;
+                let index = 0;
+
+                for (const [slug, service] of Object.entries(items)) {
+                    const isEven = index % 2 === 0;
+                    const html = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="${isEven ? 'fade-right' : 'fade-left'}">
+                            ${isEven ? '' : `<div class="relative h-[400px] overflow-hidden rounded-lg">
+                                <img src="${service.heroImage}" alt="${service.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                            </div>`}
+                            
+                            <div class="space-y-4 ${isEven ? 'md:pr-8' : 'md:pl-8'}">
+                                <h2 class="text-3xl font-bold text-gray-800">${service.title}</h2>
+                                <p class="text-gray-600 leading-relaxed">${service.overview}</p>
+                                <div class="pt-4">
+                                    <a href="${service.whatsapp || `https://wa.me/15551234567?text=Hello, I am interested in ${encodeURIComponent(service.title)}`}" 
+                                       target="_blank"
+                                       class="btn bg-maroon-600 hover:bg-maroon-700 text-white border-none">
+                                        Contact Us
+                                        <i class="fab fa-whatsapp ml-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            ${isEven ? `<div class="relative h-[400px] overflow-hidden rounded-lg">
+                                <img src="${service.heroImage}" alt="${service.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                            </div>` : ''}
+                        </div>
+                    `;
+                    
+                    servicesList.innerHTML += html;
+                    index++;
+                }
+            } catch (error) {
+                console.error('Error loading category data:', error);
+            }
+        }
+
+        // Load category data when page loads
+        document.addEventListener('DOMContentLoaded', loadCategoryData);
+    </script>
+</body>
+</html> 
