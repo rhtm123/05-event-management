@@ -27,9 +27,9 @@
                             400: '#f472b6',
                             500: '#44001b',
                             600: '#44001b',
-                            700: '#44001b',
-                            800: '#44001b',
-                            900: '#44001b',
+                            700: '#2d0012',
+                            800: '#1a000a',
+                            900: '#0d0005',
                         },
                     },
                     fontFamily: {
@@ -88,6 +88,7 @@
             overflow: auto;
             opacity: 0;
             transition: opacity 0.3s ease;
+            padding: 1rem;
         }
         
         .modal.show {
@@ -97,15 +98,24 @@
         
         .modal-content {
             background-color: #fff;
-            margin: 5% auto;
+            margin: 1rem auto;
             max-width: 900px;
+            width: 100%;
             position: relative;
             display: flex;
-            border-radius: 0;
+            flex-direction: column;
+            border-radius: 0.5rem;
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             transform: translateY(-50px);
             transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content {
+                flex-direction: row;
+                margin: 5% auto;
+            }
         }
         
         .modal.show .modal-content {
@@ -113,7 +123,8 @@
         }
         
         .modal-left {
-            width: 50%;
+            width: 100%;
+            min-height: 200px;
             position: relative;
             background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
             background-size: cover;
@@ -121,6 +132,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .modal-left {
+                width: 50%;
+                min-height: auto;
+            }
         }
         
         .modal-left::before {
@@ -134,24 +152,48 @@
         }
         
         .modal-right {
-            width: 50%;
-            padding: 40px;
+            width: 100%;
+            padding: 1.5rem;
             background-color: white;
+        }
+
+        @media (min-width: 768px) {
+            .modal-right {
+                width: 50%;
+                padding: 2.5rem;
+            }
         }
         
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            color: #888;
-            transition: color 0.3s ease;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
             z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .close-modal {
+                top: 1rem;
+                right: 1rem;
+                color: #888;
+                background: none;
+            }
         }
         
         .close-modal:hover {
             color: #000;
+            background: rgba(255, 255, 255, 0.9);
         }
         
         /* Rotating Sphere */
@@ -229,52 +271,55 @@
         /* Form Styles */
         .form-input {
             width: 100%;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            margin-bottom: 16px;
-            font-size: 14px;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
             transition: border-color 0.3s;
         }
         
         .form-input:focus {
             outline: none;
-            border-color: #a4006e;
+            border-color: #44001b;
+            box-shadow: 0 0 0 3px rgba(68, 0, 27, 0.1);
         }
         
         .form-select {
             width: 100%;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             border: 1px solid #e2e8f0;
-            border-radius: 4px;
-            margin-bottom: 16px;
-            font-size: 14px;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a0aec0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
         }
         
         .form-select:focus {
             outline: none;
-            border-color: #a4006e;
+            border-color: #44001b;
+            box-shadow: 0 0 0 3px rgba(68, 0, 27, 0.1);
         }
         
         .form-submit {
             width: 100%;
-            padding: 14px;
-            background-color: #e6b450;
+            padding: 0.875rem;
+            background-color: #44001b;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 0.375rem;
             font-weight: 600;
+            font-size: 0.875rem;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         
         .form-submit:hover {
-            background-color: #d4a43e;
+            background-color: #2d0012;
         }
         
         /* Page Header */
@@ -684,24 +729,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-maroon-700 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Column 1 -->
                 <div>
                     <h3 class="text-2xl font-bold mb-6">MANDAKINI EVENTS</h3>
-                    <p class="text-gray-400 mb-6">Creating unforgettable experiences through innovative event planning and flawless execution. Your vision, our expertise.</p>
+                    <p class="text-gray-200 mb-6">Creating unforgettable experiences through innovative event planning and flawless execution. Your vision, our expertise.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                        <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-300">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                        <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-300">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                        <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-300">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="bg-maroon-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-maroon-700 transition duration-300">
+                        <a href="#" class="bg-white/10 w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition duration-300">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -711,11 +756,11 @@
                 <div>
                     <h4 class="text-xl font-semibold mb-6">Our Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="./category.html?category=corporate-events" class="text-gray-400 hover:text-maroon-500 transition duration-300">Corporate Events</a></li>
-                        <li><a href="./category.html?category=btl-promotion" class="text-gray-400 hover:text-maroon-500 transition duration-300">BTL Activation</a></li>
-                        <li><a href="./category.html?category=choreography-activities" class="text-gray-400 hover:text-maroon-500 transition duration-300">Choreography</a></li>
-                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+corporate+gifting" class="text-gray-400 hover:text-maroon-500 transition duration-300">Corporate Gifting</a></li>
-                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+promotional+manpower" class="text-gray-400 hover:text-maroon-500 transition duration-300">Promotional Manpower</a></li>
+                        <li><a href="./category.html?category=corporate-events" class="text-gray-200 hover:text-white transition duration-300">Corporate Events</a></li>
+                        <li><a href="./category.html?category=btl-promotion" class="text-gray-200 hover:text-white transition duration-300">BTL Activation</a></li>
+                        <li><a href="./category.html?category=choreography-activities" class="text-gray-200 hover:text-white transition duration-300">Choreography</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+corporate+gifting" class="text-gray-200 hover:text-white transition duration-300">Corporate Gifting</a></li>
+                        <li><a href="https://wa.me/15551234567?text=Hello,+I+am+interested+in+promotional+manpower" class="text-gray-200 hover:text-white transition duration-300">Promotional Manpower</a></li>
                     </ul>
                 </div>
                 
@@ -723,11 +768,8 @@
                 <div>
                     <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="./about-us.html" class="text-gray-400 hover:text-maroon-500 transition duration-300">About Us</a></li>
-                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-500 transition duration-300">Our Work</a></li> -->
-                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-500 transition duration-300">Testimonials</a></li> -->
-                        <li><a href="./contact.html" class="text-gray-400 hover:text-maroon-500 transition duration-300">Contact</a></li>
-                        <!-- <li><a href="#" class="text-gray-400 hover:text-maroon-500 transition duration-300">Privacy Policy</a></li> -->
+                        <li><a href="./about-us.html" class="text-gray-200 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="./contact.html" class="text-gray-200 hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -736,27 +778,27 @@
                     <h4 class="text-xl font-semibold mb-6">Contact Info</h4>
                     <ul class="space-y-4">
                         <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-maroon-500"></i>
-                            <span class="text-gray-400">123 Business Hub, Sector 2<br>Naigaon, Mumbai</span>
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-white"></i>
+                            <span class="text-gray-200">123 Business Hub, Sector 2<br>Naigaon, Mumbai</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-maroon-500"></i>
-                            <span class="text-gray-400">+91 98765 43210</span>
+                            <i class="fas fa-phone-alt mr-3 text-white"></i>
+                            <span class="text-gray-200">+91 98765 43210</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-maroon-900"></i>
-                            <span class="text-gray-400">info@mandakinievents.com</span>
+                            <i class="fas fa-envelope mr-3 text-white"></i>
+                            <span class="text-gray-200">info@mandakinievents.com</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-clock mr-3 text-maroon-500"></i>
-                            <span class="text-gray-400">Mon - Sat: 9:00 AM - 7:00 PM</span>
+                            <i class="fas fa-clock mr-3 text-white"></i>
+                            <span class="text-gray-200">Mon - Sat: 9:00 AM - 7:00 PM</span>
                         </li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 Mandakini Events. All Rights Reserved.</p>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-200">&copy; 2024 Mandakini Events. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
