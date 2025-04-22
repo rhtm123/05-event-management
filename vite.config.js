@@ -10,6 +10,7 @@ export default defineConfig({
         about: './about-us.html',
         data: './public/data/services.json',
         contact: './contact.html',
+        category: './category.html'
 
                 // Add more HTML files as needed
       }

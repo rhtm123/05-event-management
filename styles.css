@@ -13,7 +13,7 @@
 
 .category-card ul li::before {
     content: '→';
-    @apply mr-2 text-maroon-400;
+    @apply mr-2 text-maroon-500;
 }
 
 /* Service Detail Page */
