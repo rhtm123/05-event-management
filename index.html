@@ -697,7 +697,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <!-- Stat 1 -->
                 <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-maroon-500 text-4xl font-bold mb-2">
+                    <div class="text-maroon-300 text-4xl font-bold mb-2">
                         <span class="counter" data-target="250">0</span>+
                     </div>
                     <p class="text-lg">Events Completed</p>
@@ -705,7 +705,7 @@
                 
                 <!-- Stat 2 -->
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-maroon-500 text-4xl font-bold mb-2">
+                    <div class="text-maroon-300 text-4xl font-bold mb-2">
                         <span class="counter" data-target="120">0</span>+
                     </div>
                     <p class="text-lg">Happy Clients</p>
@@ -713,7 +713,7 @@
                 
                 <!-- Stat 3 -->
                 <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-maroon-500 text-4xl font-bold mb-2">
+                    <div class="text-maroon-300 text-4xl font-bold mb-2">
                         <span class="counter" data-target="15">0</span>+
                     </div>
                     <p class="text-lg">Team Members</p>
@@ -721,7 +721,7 @@
                 
                 <!-- Stat 4 -->
                 <div data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-maroon-500 text-4xl font-bold mb-2">
+                    <div class="text-maroon-300 text-4xl font-bold mb-2">
                         <span class="counter" data-target="10">0</span>+
                     </div>
                     <p class="text-lg">Years Experience</p>
@@ -955,38 +955,48 @@
     <script src="./script.js"></script>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal fixed inset-0 bg-black bg-opacity-70 z-50 overflow-auto">
-        <div class="modal-content bg-white mx-auto my-[5%] max-w-[900px] relative flex rounded-none overflow-hidden shadow-2xl">
-            <span class="close-modal absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-900 cursor-pointer z-10">&times;</span>
-            <div class="flex flex-col md:flex-row">
-                <div class="modal-left bg-maroon-600 text-maroon-500 p-8 hidden md:block">
-                    <h3 class="text-2xl font-bold mb-4">Let's Create Your Event</h3>
-                    <p class="mb-6">Get in touch with us to make your event extraordinary!</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle mr-2"></i>
-                            <span>Professional Event Planning</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle mr-2"></i>
-                            <span>Customized Solutions</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle mr-2"></i>
-                            <span>Expert Team Support</span>
-                        </li>
-                    </ul>
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="w-full flex flex-col md:flex-row">
+                <!-- Left side - Hidden on mobile -->
+                <div class="modal-left hidden md:block w-full md:w-1/2 bg-cover bg-center relative p-8 text-white min-h-[500px]" style="background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                    <div class="relative z-10 modal-left-content">
+                        <h3 class="text-3xl font-bold mb-4">Let's Create Your Event</h3>
+                        <p class="mb-6 text-lg">Get in touch with us to make your event extraordinary!</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Professional Event Planning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Customized Solutions</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Expert Team Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="absolute inset-0 bg-black opacity-60"></div>
                 </div>
-                <div class="modal-right p-8">
-                    <h2 class="text-3xl font-bold mb-4">HIRE A PLANNER</h2>
+                <!-- Right side - Full width on mobile -->
+                <div class="modal-right w-full md:w-1/2 p-6 md:p-8 bg-white">
+                    <span class="close-modal">&times;</span>
+                    <!-- Mobile only heading -->
+                    <div class="block md:hidden mb-6">
+                        <h3 class="text-xl font-bold mb-2">Let's Create Your Event</h3>
+                        <p class="text-gray-600">Get in touch with us to make your event extraordinary!</p>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">HIRE A PLANNER</h2>
                     <p class="text-gray-600 mb-6">Drop your Requirements. We will get back to you with the best suitable Proposal for your event.</p>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Name" class="form-input" required>
-                        <input type="email" placeholder="Email" class="form-input" required>
-                        <input type="tel" placeholder="Mobile" class="form-input" required>
-                        <input type="text" placeholder="Company/Organization" class="form-input">
-                        <input type="text" placeholder="Location" class="form-input" required>
-                        <select class="form-select" required>
+                    <form id="contactForm" class="space-y-4">
+                        <input type="text" placeholder="Name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" required>
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" required>
+                        <input type="tel" placeholder="Mobile" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" required>
+                        <input type="text" placeholder="Company/Organization" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500">
+                        <input type="text" placeholder="Location" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" required>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" required>
                             <option value="">Select Service</option>
                             <option value="corporate-events">Corporate Events</option>
                             <option value="btl-promotion">BTL/Brand Promotion</option>
@@ -994,8 +1004,8 @@
                             <option value="corporate-gifting">Corporate Gifting</option>
                             <option value="promotional-manpower">Promotional Manpower</option>
                         </select>
-                        <textarea class="form-input" placeholder="Event Requirements" rows="3"></textarea>
-                        <button type="submit" class="form-submit bg-maroon-600 hover:bg-maroon-700">Send Request</button>
+                        <textarea class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-maroon-500" placeholder="Event Requirements" rows="3"></textarea>
+                        <button type="submit" class="w-full bg-maroon-600 text-white py-3 rounded hover:bg-maroon-700 transition duration-300">Send Request</button>
                     </form>
                 </div>
             </div>
