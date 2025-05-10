@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mandakini Social & Corporate Events - Making Moments that Matter</title>
-    <!-- Tailwind CSS -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
     <link rel="stylesheet" href="/style.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -61,6 +60,30 @@
             background: rgba(0, 0, 0, 0.6);
         }
         
+
+    
+    .hero-slide .container {
+        height: 100%;
+    }
+    
+    /* Glassmorphism effect for the right side cards */
+    .backdrop-blur-sm {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    
+    /* Animation delay for right side content */
+    .animate__fadeInRight {
+        animation-delay: 0.3s;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1023px) {
+        .hero-slide .grid {
+            display: block;
+        }
+    }
+
         /* Card Animations */
         .card-hover {
             transition: all 0.3s ease;
@@ -431,11 +454,49 @@
             padding: 20px;
             text-align: center;
         }
+
+        .testimonial-slider {
+        padding: 20px 0 40px;
+    }
+    
+    .swiper-slide {
+        height: auto;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: #a4006e;
+        opacity: 0.5;
+    }
+    
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #a4006e;
+        background-color: rgba(255, 255, 255, 0.8);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 20px;
+        font-weight: bold;
+    }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white bg-opacity-80">
+    <header class="fixed top-0 w-full z-50 bg-white bg-opacity-80">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <a href="./index.html" class="flex items-center">
@@ -468,44 +529,134 @@
     </div>
 
     <!-- Hero Section with Slider -->
-    <section class="hero-slider">
-        <div class="hero-slide active" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/young-couple-in-a-wedding-ceremony-at-the-beach.webp');">
-            <div class="container mx-auto px-4 relative z-10">
+<section class="hero-slider">
+    <!-- Slide 1 -->
+    <div class="hero-slide active" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/young-couple-in-a-wedding-ceremony-at-the-beach.webp');">
+        <div class="container mx-auto px-4 relative z-10 h-full flex items-center pt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
                 <div class="max-w-2xl animate__animated animate__fadeInLeft">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Making Moments that Matter with <span class="bg-white/80 px-4 py-2  text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Mandakini Events</span></h1>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        Turning Celebrations into Lifelong <span class="bg-white/80 px-4 py-2 text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Memories</span>
+                    </h1>
+
                     <p class="text-gray-300 text-lg mb-8">We craft unforgettable experiences for corporate events, social gatherings, and more, right here in India.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#" class="bg-maroon-500 text-white px-8 py-3 rounded-full hover:bg-maroon-600 transition duration-300 font-medium btn-pulse">Get Started</a>
                         <a href="#" class="border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-maroon-600 transition duration-300 font-medium shine-effect">Learn More</a>
                     </div>
                 </div>
+                <div class="hidden lg:flex flex-col items-center justify-center animate__animated animate__fadeInRight">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20 max-w-md">
+                        <h3 class="text-2xl font-bold text-white mb-4">Why Choose Us?</h3>
+                        <ul class="space-y-3 text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maroon-300 mt-1 mr-3"></i>
+                                <span>10+ Years of Event Expertise</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maroon-300 mt-1 mr-3"></i>
+                                <span>250+ Successful Events</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maroon-300 mt-1 mr-3"></i>
+                                <span>Customized Event Solutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maroon-300 mt-1 mr-3"></i>
+                                <span>End-to-End Event Management</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying.webp');">
-            <div class="container mx-auto px-4 relative z-10">
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying.webp');">
+        <div class="container mx-auto px-4 relative z-10 h-full flex items-center pt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
                 <div class="max-w-2xl animate__animated animate__fadeInLeft">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Elevate Your <span class="bg-white/80 px-4 py-2 text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Corporate Events</span></h1>
+
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        Crafting Impactful & Seamless <span class="bg-white/80 px-4 py-2 text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Corporate Events</span>
+                    </h1>
+
                     <p class="text-gray-300 text-lg mb-8">From MICE to product launches, we bring your vision to life with seamless execution.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#" class="bg-maroon-500 text-white px-8 py-3 rounded-full hover:bg-maroon-600 transition duration-300 font-medium btn-pulse">Get Started</a>
                         <a href="#" class="border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-maroon-600 transition duration-300 font-medium shine-effect">Learn More</a>
                     </div>
                 </div>
+                <div class="hidden lg:flex flex-col items-center justify-center animate__animated animate__fadeInRight">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20 max-w-md">
+                        <h3 class="text-2xl font-bold text-white mb-4">Corporate Services</h3>
+                        <ul class="space-y-3 text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-maroon-300 mt-1 mr-3"></i>
+                                <span>Conferences & Seminars</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-maroon-300 mt-1 mr-3"></i>
+                                <span>Product Launches</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-maroon-300 mt-1 mr-3"></i>
+                                <span>Team Building Activities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-maroon-300 mt-1 mr-3"></i>
+                                <span>Award Ceremonies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/new-year-party.webp');">
-            <div class="container mx-auto px-4 relative z-10">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide" style="background-image: url('https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/new-year-party.webp');">
+        <div class="container mx-auto px-4 relative z-10 h-full flex items-center pt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full items-center">
                 <div class="max-w-2xl animate__animated animate__fadeInLeft">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Celebrate Special <span class="bg-white/80 px-4 py-2  text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Occasions</span> with Us</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        Unforgettable Moments for Your Special <span class="bg-white/80 px-4 py-2 text-maroon-600 block mt-2 md:mt-1 mb-2 md:mb-4 w-fit shadow-lg">Occasions</span>
+                    </h1>
+
                     <p class="text-gray-300 text-lg mb-8">From New Year's Eve to anniversary celebrations, we create magical moments that last a lifetime.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#" class="bg-maroon-600 text-white px-8 py-3 rounded-full hover:bg-maroon-700 transition duration-300 font-medium btn-pulse">Get Started</a>
                         <a href="#" class="border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-maroon-600 transition duration-300 font-medium shine-effect">Learn More</a>
                     </div>
                 </div>
+                <div class="hidden lg:flex flex-col items-center justify-center animate__animated animate__fadeInRight">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20 max-w-md">
+                        <h3 class="text-2xl font-bold text-white mb-4">Social Events</h3>
+                        <ul class="space-y-3 text-gray-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-maroon-300 mt-1 mr-3"></i>
+                                <span>Weddings & Receptions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-maroon-300 mt-1 mr-3"></i>
+                                <span>Birthday Celebrations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-maroon-300 mt-1 mr-3"></i>
+                                <span>Anniversary Parties</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-heart text-maroon-300 mt-1 mr-3"></i>
+                                <span>Theme Parties</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     
 
@@ -783,48 +934,20 @@
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">What Clients Says</h2>
+                <h2 class="text-3xl font-bold mb-4">What Clients Say</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Hear from our satisfied clients about their experience working with us.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <img src="https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/business-people-party-celebration-success-concept.webp" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-semibold">Robert Johnson</h4>
-                            <p class="text-gray-600">Wedding Client</p>
-                        </div>
-                    </div>
-                    <div class="mb-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic">"Evenizer made our wedding day absolutely perfect! Their attention to detail and creative ideas transformed our vision into reality. The team was professional, responsive, and went above and beyond to ensure everything ran smoothly."</p>
+            <!-- Testimonial Slider Container -->
+            <div class="swiper testimonial-slider">
+                <div class="swiper-wrapper">
+                    <!-- Testimonials will be dynamically inserted here -->
                 </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg  card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <img src="https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying.webp" alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="font-semibold">Sarah Williams</h4>
-                            <p class="text-gray-600">Corporate Event</p>
-                        </div>
-                    </div>
-                    <div class="mb-4 text-yellow-400">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic">"We hired Evenizer for our company's annual gala, and they exceeded all expectations. From the initial planning stages to the execution on the day of the event, their team was exceptional. Our guests were impressed with every aspect of the event."</p>
-                </div>
+                <!-- Add pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
             
             <div class="text-center mt-8">
@@ -1149,5 +1272,105 @@
             });
         });
     </script>
+
+
+<script>
+    // Testimonial data array
+    const testimonials = [
+        {
+            name: "St. Soldier Public School",
+            role: "School Function",
+            image: "https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/business-people-party-celebration-success-concept.webp",
+            rating: 5,
+            quote: "It was great working with Mandakini. It's a team of hardworking, patience members. The team trained approx 550 students of my school which includes children age from 3 to 14. It was fun infact after the event, the teachers and especially the students were missing their choreographers for a week."
+        },
+        {
+            name: "Our Lady of Vailankanni High School",
+            role: "School Tour",
+            image: "https://fse.jegtheme.com/evenizer/wp-content/uploads/sites/81/2025/03/people-partying.webp",
+            rating: 5,
+            quote: "We had an amazing experience at the Annual function organised this year. The event was seamlessly organised, with excellent attention to detail in every aspect from the costume arrangements to the timing of each performances."
+        },
+        {
+            name: "Rahul Kumar",
+            role: "Product Launch",
+            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+            rating: 5,
+            quote: "Nupur coordinated all my requirements very efficiently. Her team did a great job executing it.. Thank you 🙂"
+        },
+        {
+            name: "Club Mahindra",
+            role: "Corporate Event",
+            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+            rating: 5,
+            quote: "Customer support is much appreciated. Quick service and quick response. Overall a great experience working with Mandakini"
+        }
+    ];
+
+    // Initialize testimonial slider after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the swiper wrapper
+        const swiperWrapper = document.querySelector('.testimonial-slider .swiper-wrapper');
+        
+        // Add testimonials to the slider
+        testimonials.forEach(testimonial => {
+            // Create rating stars
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < testimonial.rating) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            // Create testimonial slide
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <div class="bg-white p-6 rounded-lg transition-all duration-300 hover:shadow-xl h-full">
+                    <div class="flex items-center mb-4">
+                        <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold">${testimonial.name}</h4>
+                            <p class="text-gray-600">${testimonial.role}</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        ${stars}
+                    </div>
+                    <p class="text-gray-600 italic">"${testimonial.quote}"</p>
+                </div>
+            `;
+            
+            swiperWrapper.appendChild(slide);
+        });
+        
+        // Initialize Swiper
+        const testimonialSwiper = new Swiper('.testimonial-slider', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
